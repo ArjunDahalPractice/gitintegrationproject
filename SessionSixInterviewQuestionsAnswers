@@ -1,0 +1,115 @@
+1. What are the different types of locators in Selenium?
+CSS selector, LinkText, PartialLinkText, XPath, ID, ClassName, Name, TagName, DOM 
+-----------------------------------------------------------------------
+3. What is the difference between "/" and "//" in xpath?
+/ used for find absolute path of xpath.
+// used for find relative path of xpath.
+-----------------------------------------------------------------------
+4. How can you launch the browser using WebDriver?
+WebDriver driver = new ChromeDriver();
+-----------------------------------------------------------------------
+5. What are the different types of waits available in WebDriver?
+implicit wait and explicit wait. Explicit wait extended with fluent wait.
+-----------------------------------------------------------------------
+6. How to type in a text box using Selenium?
+WebElement username = driver.findElement(By.xpath("xpathlocationforelement"));
+username.sendkey("type your text");
+-----------------------------------------------------------------------
+7. How many ways can you select a value from drop down using a Select Class?
+Select select = new Select(webelement);
+		select.selectByIndex(2);
+		select.selectByValue("");
+		select.selectByVisibleText("");
+-----------------------------------------------------------------------
+8. How can you determine the existence of iFrames?
+Open the page in browser and see HTML code for the page using Firebug, Developer Tools etc. 
+If HTML has tag iframe, that means your page has iframe and hence you'll have to use 
+driver.switchTo.frame(frame); to interact with elements within the frame.
+If you want to check with Java code, do following:
+driver.getPageSource().contains("iframe"); //this will return true if there is iframe
+-----------------------------------------------------------------------
+9. How to handle frame in WebDriver?
+
+Select iframe by id
+driver.switchTo().frame(“ID of the frame“);
+
+Locating iframe using tagName
+driver.switchTo().frame(driver.findElements(By.tagName(“iframe”).get(0));
+
+Locating iframe using index
+frame(index)
+driver.switchTo().frame(0);
+
+frame(Name of Frame)
+driver.switchTo().frame(“name of the frame”);
+
+frame(WebElement element)
+Select Parent Window
+driver.switchTo().defaultContent();
+
+-----------------------------------------------------------------------
+10. How do you handle popups?
+Alert interface has four method which can handle popups and they are ...
+webdriver.switchTo().alert().accept(); //ok
+webdriver.switchTo().alert().dismiss(); //cancel
+webdriver.switchTo().alert().getText(); //get message from alert box
+
+-----------------------------------------------------------------------
+11. How do you handle Hover over?
+Create instance of Action class pass driver and using moveToElement method where i will pass webelement and using build and perform method...
+action.moveToElement(webelement).build().perform(); //mouse hover 
+-----------------------------------------------------------------------
+12. How do you handle new tab?
+String parentWindow = wdriver.getWindowHandle(); // create parentwindow and 		
+Set<String> set = wdriver.getWindowHandles(); //popup all windows store in set then after using forEach loop switch to desire window.. 
+-----------------------------------------------------------------------
+13. What is the difference between driver.close and driver.quit?
+driver.close will close current windows tab where your test script running..
+driver.quit will close all windows tab.
+-----------------------------------------------------------------------
+14. Can Selenium handle Window Based popups? Use AutoIT or Robot Class to handle
+Selenium used for webbased popups only so selenium can not handle window based popups but using third party tools like AutoIT or Robot class
+can handle window based popups. 
+-----------------------------------------------------------------------
+15. How can you assert the title of the web page?
+assertTrue(“The title of the window is incorrect.”,driver.getTitle().equals(“Title of the page”));
+
+-----------------------------------------------------------------------
+
+
+
+1. Create a local repository and upload project (FIRST TIME ONLY):
+     1. Open GitBash in the folder where the project is located,
+     2. Type> git init           						- This will create a repository in your computer,
+     3. Type> git status       							- This will show which branch you are on and file status
+     4. Type> git add .         						- This will include all files in the staging area to be committed,
+     5. Type> git commit -m "Message goes here"         - This will commit all changes and include a message
+     6. Type> git remote add origin [project url]       - This will link remote to your local repository
+     7. Type> git push -u origin master                 - This will push your code to the remote master branch
+
+2. Clone the project (FIRST TIME):
+     1. Open GitBash in a folder of your choice,
+     2. Type> git init
+     3. Type> git clone [project url]         				- This will clone the project into your local
+     4. Close GitBash and reopen GitBash in the new cloned folder
+     5. Type> mvn clean           
+     6. Type> mvn install
+     7. Open Eclipse, go to new, click Open Project From File System,
+     8. Browse to the project folder and click finish.
+3. Update code and create a pull request (FOR EVERY TEST CASE):
+     1. Open GitBash in the folder where the project is located,
+     2. Type> git branch            						- This will show you which branch you are on
+     3. Type> git pull                  					- If you are on master, this will pull the latest code
+     4. Type> git checkout -b [new branch name]             - This will copy the master into your new branch
+     5. Go back to your project and write your code, then open GitBash again,
+     6. Type> git add .
+     7. Type> git commit -m "Message goes here"
+     8. Type> git checkout master               			- This will move you to master branch
+     9. Type> git pull                                      - This will pull the latest master
+     10. Type> git checkout [your branch name]              - This will move you back to your branch
+     11. Type> git merge master                     		- This will bring new master code to yours
+     12. Type> git push -u origin [your branch name] 		- This will create new branch in remote and with your code,
+     13. Login to remote repository (GitHub or BitBucket) to manually create a pull request.
+
+
+
